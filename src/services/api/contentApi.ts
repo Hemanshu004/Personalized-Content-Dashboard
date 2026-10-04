@@ -18,6 +18,7 @@ export const contentApi = createApi({
   reducerPath: 'contentApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
   tagTypes: ['News', 'Movies', 'Social'],
+  keepUnusedDataFor: 300, // Cache for 5 minutes
   endpoints: (builder) => ({
     // ─── News ──────────────────────────────────────────────────
     getNews: builder.query<ContentResponse, ContentQueryParams>({

@@ -5,6 +5,7 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { SettingsView } from '@/components/features/settings/SettingsView';
 import { UnifiedFeed } from '@/components/features/feed/UnifiedFeed';
 import { FavoritesView } from '@/components/features/favorites/FavoritesView';
+import { ReadLaterView } from '@/components/features/readLater/ReadLaterView';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 
@@ -105,6 +106,20 @@ export default function Home() {
               </p>
             </header>
             <FavoritesView />
+          </motion.div>
+        );
+      case 'readLater':
+        return (
+          <motion.div key="readLater" variants={viewVariants} initial="initial" animate="animate" exit="exit" className="space-y-6 px-4 py-8 sm:px-6 lg:px-8">
+            <header className="flex flex-col gap-1.5 pb-2">
+              <h1 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
+                {t('readLater')}
+              </h1>
+              <p className="text-base text-text-secondary">
+                Content you want to read later.
+              </p>
+            </header>
+            <ReadLaterView />
           </motion.div>
         );
       case 'settings':

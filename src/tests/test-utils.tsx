@@ -6,6 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { contentApi } from '@/services/api/contentApi';
 import preferencesReducer from '@/features/preferences/preferencesSlice';
 import favoritesReducer from '@/features/favorites/favoritesSlice';
+import readLaterReducer from '@/features/readLater/readLaterSlice';
 import feedReducer from '@/features/feed/feedSlice';
 import uiReducer from '@/features/ui/uiSlice';
 import type { RootState } from '@/store';
@@ -26,6 +27,7 @@ export function renderWithProviders(
       [contentApi.reducerPath]: contentApi.reducer,
       preferences: preferencesReducer,
       favorites: favoritesReducer,
+      readLater: readLaterReducer,
       feed: feedReducer,
       ui: uiReducer,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

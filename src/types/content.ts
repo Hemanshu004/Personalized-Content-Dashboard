@@ -13,7 +13,11 @@ export type ContentCategory =
   | 'science'
   | 'business'
   | 'health'
-  | 'general';
+  | 'general'
+  | 'ai'
+  | 'movies'
+  | 'gaming'
+  | 'worldNews';
 
 export interface ContentItem {
   id: string;

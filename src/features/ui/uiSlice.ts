@@ -15,6 +15,7 @@ export type ActiveView =
   | 'feed'
   | 'trending'
   | 'favorites'
+  | 'readLater'
   | 'settings';
 
 interface UiState {

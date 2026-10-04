@@ -7,6 +7,7 @@ export const STORAGE_KEYS = {
   FAVORITES: 'pgagi_favorites',
   FEED_ORDER: 'pgagi_feed_order',
   THEME: 'pgagi_theme',
+  READ_LATER: 'pgagi_read_later',
 } as const;
 
 export const CONTENT_CATEGORIES = [

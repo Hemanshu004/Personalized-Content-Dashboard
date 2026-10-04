@@ -4,6 +4,8 @@ export const en = {
   trending: 'Trending',
   favorites: 'Favorites',
   settings: 'Settings',
+  readLater: 'Read Later',
+  readLaterDesc: 'Content you want to read later.',
   search: 'Search content...',
   readArticle: 'Read Article',
   play: 'Play',

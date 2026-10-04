@@ -1,26 +1,38 @@
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { toggleFavorite, selectIsFavorite } from '@/features/favorites/favoritesSlice';
+import { toggleReadLater, selectIsReadLater } from '@/features/readLater/readLaterSlice';
+import { selectPreferences } from '@/features/preferences/preferencesSlice';
 import type { ContentItem } from '@/types/content';
-import { Heart, ExternalLink, Calendar, Star, MessageCircle, Share2, Film, FileText, GripHorizontal } from 'lucide-react';
+import { Heart, ExternalLink, Calendar, Star, MessageCircle, Share2, Film, FileText, GripHorizontal, Info, Bookmark } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { ImageFallback } from '@/components/common/ImageFallback';
+import { getPersonalizationReason } from '@/lib/personalization';
 
 interface ContentCardProps {
   item: ContentItem;
   isSortable?: boolean;
 }
 
-export function ContentCard({ item, isSortable }: ContentCardProps) {
+export const ContentCard = memo(function ContentCard({ item, isSortable }: ContentCardProps) {
   const dispatch = useAppDispatch();
   const isFavorite = useAppSelector((state) => selectIsFavorite(state, item.id));
+  const preferences = useAppSelector(selectPreferences);
+  const isReadLater = useAppSelector((state) => selectIsReadLater(state, item.id));
   const [imgError, setImgError] = useState(false);
 
   const handleFavorite = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     dispatch(toggleFavorite(item.id));
+  };
+
+  const handleReadLater = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dispatch(toggleReadLater(item.id));
   };
 
   const getCtaText = () => {
@@ -85,15 +97,13 @@ export function ContentCard({ item, isSortable }: ContentCardProps) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={item.image}
-            alt={item.title}
+            alt={item.title || 'Content thumbnail'}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={() => setImgError(true)}
             loading="lazy"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-muted-foreground/50">
-            {getTypeIcon()}
-          </div>
+          <ImageFallback className="group-hover:scale-105 transition-transform duration-500" />
         )}
         
         {/* Type Badge */}
@@ -128,6 +138,19 @@ export function ContentCard({ item, isSortable }: ContentCardProps) {
           aria-pressed={isFavorite}
         >
           <Heart className={cn("h-4 w-4", isFavorite && "fill-red-500")} />
+        </button>
+
+        {/* Read Later Button */}
+        <button
+          onClick={handleReadLater}
+          className={cn(
+            "absolute right-14 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 backdrop-blur-md shadow-sm border border-border/50 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            isReadLater ? "text-blue-500 hover:bg-background/90" : "text-muted-foreground hover:text-blue-500 hover:bg-background/90 opacity-0 group-hover:opacity-100 sm:opacity-100"
+          )}
+          aria-label={isReadLater ? 'Remove from read later' : 'Read later'}
+          aria-pressed={isReadLater}
+        >
+          <Bookmark className={cn("h-4 w-4", isReadLater && "fill-blue-500")} />
         </button>
       </div>
 
@@ -191,6 +214,11 @@ export function ContentCard({ item, isSortable }: ContentCardProps) {
           {item.description}
         </p>
 
+        <div className="mt-2 flex items-center gap-1.5 text-[10px] sm:text-xs text-muted-foreground/80 font-medium">
+          <Info className="h-3 w-3 shrink-0" />
+          <span className="truncate">{getPersonalizationReason(item, preferences)}</span>
+        </div>
+
         <div className="mt-auto pt-3 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus-within:opacity-100">
           <a
             href={item.url !== '#' ? item.url : undefined}
@@ -223,4 +251,4 @@ export function ContentCard({ item, isSortable }: ContentCardProps) {
       </div>
     </article>
   );
-}
+});

@@ -13,6 +13,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { contentApi } from '@/services/api/contentApi';
 import preferencesReducer from '@/features/preferences/preferencesSlice';
 import favoritesReducer from '@/features/favorites/favoritesSlice';
+import readLaterReducer from '@/features/readLater/readLaterSlice';
 import feedReducer from '@/features/feed/feedSlice';
 import uiReducer from '@/features/ui/uiSlice';
 
@@ -22,6 +23,7 @@ export const makeStore = () =>
       [contentApi.reducerPath]: contentApi.reducer,
       preferences: preferencesReducer,
       favorites: favoritesReducer,
+      readLater: readLaterReducer,
       feed: feedReducer,
       ui: uiReducer,
     },

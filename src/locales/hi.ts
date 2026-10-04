@@ -6,6 +6,8 @@ export const hi: TranslationMap = {
   trending: 'ट्रेंडिंग',
   favorites: 'पसंदीदा',
   settings: 'सेटिंग्स',
+  readLater: 'बाद में पढ़ें',
+  readLaterDesc: 'ऐसी सामग्री जिसे आप बाद में पढ़ना चाहते हैं।',
   search: 'सामग्री खोजें...',
   readArticle: 'लेख पढ़ें',
   play: 'चलाएं',

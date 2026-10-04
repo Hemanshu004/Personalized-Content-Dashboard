@@ -22,5 +22,21 @@
     "email": "Patelhemanshu0@gmail.com",
     "password": "$2b$10$pHf4WFsulW6salHl4PuT5OtEBXBJdwtYzJBoM14TbmqNoHODPNM96",
     "image": "https://ui-avatars.com/api/?name=john&background=E50914&color=fff"
+  },
+  {
+    "id": "1791123533864",
+    "name": "smith",
+    "username": "smith",
+    "email": "Patelhemanshu0000@gmail.com",
+    "password": "$2b$10$RkTgaQ8549EWYexqbu6SR..8iKNx0uu5dCRJuwonHgZzzIr8z340G",
+    "image": "https://ui-avatars.com/api/?name=smith&background=E50914&color=fff"
+  },
+  {
+    "id": "1791123684112",
+    "name": "john_user",
+    "username": "john_user",
+    "email": "john@gmail.com",
+    "password": "$2b$10$4REyZQHU5Fq.JpC1Fik5AuBeWW92.tXhKbnqOXRspvV3sbcYMpAQW",
+    "image": "https://ui-avatars.com/api/?name=john_user&background=E50914&color=fff"
   }
 ]

@@ -141,7 +141,7 @@ export function UnifiedFeed() {
         }
       };
       dispatch(receiveNewItems([newItem]));
-    }, 15000); // Every 15 seconds for simulation
+    }, 60000); // Every 60 seconds for simulation
 
     return () => clearInterval(interval);
   }, [fetchSocial, dispatch]);

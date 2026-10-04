@@ -5,7 +5,8 @@ import {
   Rss, 
   TrendingUp, 
   Heart, 
-  Settings 
+  Settings,
+  Bookmark
 } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setActiveView, setSidebarOpen, type ActiveView } from '@/features/ui/uiSlice';
@@ -24,6 +25,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'feed', label: 'personalizedFeed', icon: Rss },
   { id: 'trending', label: 'trending', icon: TrendingUp },
   { id: 'favorites', label: 'favorites', icon: Heart },
+  { id: 'readLater', label: 'readLater', icon: Bookmark },
   { id: 'settings', label: 'settings', icon: Settings },
 ];
 

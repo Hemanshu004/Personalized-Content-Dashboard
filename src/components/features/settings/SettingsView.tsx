@@ -24,6 +24,10 @@ const CATEGORIES: { id: ContentCategory; label: string }[] = [
   { id: 'entertainment', label: 'Entertainment' },
   { id: 'science', label: 'Science' },
   { id: 'health', label: 'Health' },
+  { id: 'ai', label: 'AI' },
+  { id: 'movies', label: 'Movies' },
+  { id: 'gaming', label: 'Gaming' },
+  { id: 'worldNews', label: 'World News' },
 ];
 
 const CONTENT_TYPES: { id: ContentType; label: string }[] = [
