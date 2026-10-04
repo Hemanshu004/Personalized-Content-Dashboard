@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1791121403999",
+    "name": "Test User",
+    "username": "testuser",
+    "email": "test@test.com",
+    "password": "$2b$10$0C41BkEtnTq1fDZCHRldAOYz2aRkw0hxm1NY30qsOJGfHI5GOWhyC",
+    "image": "https://ui-avatars.com/api/?name=Test%20User&background=E50914&color=fff"
+  },
+  {
+    "id": "1791121811422",
+    "name": "Hemanshu Nilesh Patel",
+    "username": "hitmac",
+    "email": "Patelhemanshu09@gmail.com",
+    "password": "$2b$10$RhXb.5LZyemX6EjKBRBScOyv0R.Q6.YAgIR1h.JM6KAEkzn7GxOum",
+    "image": "https://ui-avatars.com/api/?name=Hemanshu%20Nilesh%20Patel&background=E50914&color=fff"
+  },
+  {
+    "id": "1791121843796",
+    "name": "john",
+    "username": "john",
+    "email": "Patelhemanshu0@gmail.com",
+    "password": "$2b$10$pHf4WFsulW6salHl4PuT5OtEBXBJdwtYzJBoM14TbmqNoHODPNM96",
+    "image": "https://ui-avatars.com/api/?name=john&background=E50914&color=fff"
+  }
+]
